@@ -40,7 +40,7 @@ namespace BookStore.Services
                 throw new BusinessException("Book doesn't exist bruh");
 
             if (book.IsLoaned)
-                throw new BusinessException("The book is loaned reicon");
+                throw new BusinessException("The book is already loaned reicon");
 
             //  marcar como prestado
             book.IsLoaned = true;
