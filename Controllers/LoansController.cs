@@ -41,17 +41,38 @@ namespace BookStore.Controllers;
         [HttpPost]
         public IActionResult Create(LoanViewModel vm)
         {
-            var loan = new Loan
+            if (!ModelState.IsValid)
             {
-                UserId = vm.UserId,
-                BookId = vm.BookId
-            };
+                vm.Users = _userService.GetAll();
+                vm.Books = _bookService.GetAll().Where(b => !b.IsLoaned).ToList();
+                return View(vm);
+            }
 
-            _loanService.Add(loan);
-            TempData["Message"] = "Loan created successfully";
-            TempData["Type"] = "success";
-    
-            return RedirectToAction("Index");
+            try
+            {
+                var loan = new Loan
+                {
+                    UserId = vm.UserId,
+                    BookId = vm.BookId
+                };
+
+                _loanService.Add(loan);
+
+                TempData["Message"] = "Loan created successfully";
+                TempData["Type"] = "success";
+
+                return RedirectToAction("Index");
+            }
+            catch (BusinessException ex)
+            {
+                TempData["Message"] = ex.Message;
+                TempData["Type"] = "warning";
+
+                vm.Users = _userService.GetAll();
+                vm.Books = _bookService.GetAll().Where(b => !b.IsLoaned).ToList();
+
+                return View(vm);
+            }
         }
 
         public IActionResult Delete(int id)
