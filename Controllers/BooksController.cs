@@ -27,12 +27,24 @@ public class BooksController : Controller
     public IActionResult Create(Book book)
     {
         if (!ModelState.IsValid)
-            return View(book);
-        _service.Add(book);
-        TempData["Message"] = "Book created successfully";
-        TempData["Type"] = "Success";
-        return RedirectToAction("Index");
+            return View("CreateEdit", book);
+        try
+        {
+            _service.Add(book);
+
+            TempData["Message"] = "Book created successfully";
+            TempData["Type"] = "success";
+
+            return RedirectToAction("Index");
+        }
+        catch (BusinessException ex)
+        {
+            TempData["Message"] = ex.Message;
+            TempData["Type"] = "warning";
+            return RedirectToAction("Index");
+        }
     }
+
     // Edit - este metodo carga todos los datos
     public IActionResult Edit(int id)
     {
@@ -48,7 +60,7 @@ public class BooksController : Controller
     public IActionResult Edit(Book book)
     {
         if (!ModelState.IsValid)
-            return View(book);
+            return View("CreateEdit",book);
 
         _service.Update(book);
         TempData["Message"] = "Book edited successfully";

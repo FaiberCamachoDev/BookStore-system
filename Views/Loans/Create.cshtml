@@ -12,6 +12,7 @@
                 <option value="@u.Id">@u.Name</option>
             }
         </select>
+        <span asp-validation-for="UserId" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
@@ -22,6 +23,7 @@
                 <option value="@b.Id">@b.Title</option>
             }
         </select>
+        <span asp-validation-for="BookId" class="text-danger"></span>
     </div>
 
     <button class="btn btn-success">Save</button>

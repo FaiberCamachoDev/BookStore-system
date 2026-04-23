@@ -23,6 +23,10 @@ namespace BookStore.Services;
 
         public void Add(Book book)
         {
+            var exists = _context.Books.Any(x => x.Title == book.Title);
+
+            if (exists)
+                throw new BusinessException("ya existe el libro papi, ponotro big-head");
             _context.Books.Add(book);
             _context.SaveChanges();
         }
@@ -41,5 +45,11 @@ namespace BookStore.Services;
                 _context.Books.Remove(book);
                 _context.SaveChanges();
             }
+        }
+    }
+    public class BusinessException : Exception
+    {
+        public BusinessException(string message) : base(message)
+        {
         }
     }

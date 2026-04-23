@@ -24,6 +24,10 @@ public class UserService : IUserService
 
     public void Add(User user)
     {
+        var exists = _context.Users.Any(x => x.Email == user.Email);
+
+        if (exists)
+            throw new BusinessException("The email is registered my pai");
         _context.Users.Add(user);
         _context.SaveChanges();
     }

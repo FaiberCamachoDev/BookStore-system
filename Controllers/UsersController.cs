@@ -26,10 +26,25 @@ namespace BookStore.Controllers;
         [HttpPost]
         public IActionResult Create(User user)
         {
-            _service.Add(user);
-            TempData["Message"] = "User created successfully";
-            TempData["Type"] = "success";
-            return RedirectToAction("Index");
+            if (!ModelState.IsValid)
+                return View("CreateEdit",user);
+
+            try
+            {
+                _service.Add(user);
+
+                TempData["Message"] = "User created successfully";
+                TempData["Type"] = "success";
+
+                return RedirectToAction("Index");
+            }
+            catch (BusinessException ex)
+            {
+                TempData["Message"] = ex.Message;
+                TempData["Type"] = "warning";
+
+                return View("CreateEdit",user);
+            }
         }
 
         public IActionResult Edit(int id)
