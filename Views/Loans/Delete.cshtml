@@ -1,0 +1,15 @@
+@model BookStore.Models.Loan
+
+<h2>Delete Loan</h2>
+
+<div class="alert alert-warning">
+    <p><strong>User:</strong> @Model.User?.Name</p>
+    <p><strong>Book:</strong> @Model.Book?.Title</p>
+    <p><strong>Date:</strong> @Model.LoanDate.ToString("g")</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <button class="btn btn-danger">Delete</button>
+    <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+</form>

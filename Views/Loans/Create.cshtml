@@ -1,0 +1,29 @@
+@model BookStore.ViewModels.LoanViewModel
+
+<h2>Create Loan</h2>
+
+<form method="post">
+
+    <div class="mb-3">
+        <label class="form-label">User</label>
+        <select class="form-select" asp-for="UserId">
+            @foreach (var u in Model.Users)
+            {
+                <option value="@u.Id">@u.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Book</label>
+        <select class="form-select" asp-for="BookId">
+            @foreach (var b in Model.Books)
+            {
+                <option value="@b.Id">@b.Title</option>
+            }
+        </select>
+    </div>
+
+    <button class="btn btn-success">Save</button>
+    <a class="btn btn-secondary" asp-action="Index">Back</a>
+</form>
