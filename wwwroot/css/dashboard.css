@@ -1,0 +1,90 @@
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    font-weight: 700;
+}
+
+.dashboard-header p {
+    color: #6c757d;
+}
+
+/* GRID */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CARD BASE */
+.dashboard-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* HOVER ANIMATION */
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ICON */
+.card-icon {
+    font-size: 30px;
+}
+
+/* TEXT */
+.card-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #6c757d;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* COLORS */
+.dashboard-card.books {
+    border-left: 5px solid #0d6efd;
+}
+
+.dashboard-card.users {
+    border-left: 5px solid #198754;
+}
+
+.dashboard-card.loans {
+    border-left: 5px solid #ffc107;
+}
+
+.dashboard-card.money {
+    border-left: 5px solid #dc3545;
+}
+
+/* ENTRY ANIMATION */
+.dashboard-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

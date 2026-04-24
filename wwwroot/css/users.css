@@ -1,0 +1,47 @@
+/* ===== USERS PAGE ===== */
+
+.users-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.users-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.table-users thead {
+    background: #f8f9fa;
+}
+
+.table-users tbody tr {
+    transition: all 0.2s ease;
+}
+
+.table-users tbody tr:hover {
+    background: #f1f3f5;
+    transform: scale(1.01);
+}
+
+/* Buttons */
+.btn-action {
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+/* Form */
+.form-card {
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}

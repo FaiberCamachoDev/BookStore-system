@@ -13,6 +13,6 @@ namespace BookStore.Models
         public int BookId { get; set; }
         public Book? Book { get; set; }
 
-        public DateTime LoanDate { get; set; } = DateTime.Now;
+        public DateTime LoanDate { get; set; } = DateTime.UtcNow;
     }
 }

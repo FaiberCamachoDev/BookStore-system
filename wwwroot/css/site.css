@@ -1,31 +1,65 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* BACKGROUND */
 body {
-  margin-bottom: 60px;
+  overflow-x: hidden;
+  background-color: #f5f7fb;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* SIDEBAR */
+.sidebar {
+  height: 100vh;
+  background: #1e293b;
+  color: white;
+  position: fixed;
+  width: 240px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.sidebar a {
+  color: #cbd5e1;
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: #334155;
+  color: white;
+}
+
+/* MAIN */
+.main-content {
+  margin-left: 240px;
+  padding: 20px;
+}
+
+/* TOPBAR */
+.topbar {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* CARD */
+.content-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* ALERT */
+.custom-alert {
+  animation: slideFade 0.5s ease;
+}
+
+/* ANIMATION */
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

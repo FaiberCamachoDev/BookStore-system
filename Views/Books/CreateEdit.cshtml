@@ -1,27 +1,40 @@
 @model BookStore.Models.Book
 
-<h2>@(Model.Id == 0 ? "Create Book" : "Edit Book")</h2>
+@section Styles {
+    <link rel="stylesheet" href="~/css/books.css" />
+}
 
-<form asp-action="@ViewContext.RouteData.Values["action"]" method="post">
+<div class="form-card">
 
-    <div class="mb-3">
-        <label class="form-label">Title</label>
-        <input class="form-control" asp-for="Title" />
-        <span asp-validation-for="Title" class="text-danger"></span>
-    </div>
+    <h3 class="mb-4 text-center">
+        @(Model.Id == 0 ? "Create Book" : "Edit Book")
+    </h3>
 
-    <div class="mb-3">
-        <label class="form-label">Author</label>
-        <input class="form-control" asp-for="Author" />
-        <span asp-validation-for="Author" class="text-danger"></span>
-    </div>
+    <form asp-action="@ViewContext.RouteData.Values["action"]" method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input class="form-control" asp-for="Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Author</label>
+            <input class="form-control" asp-for="Author" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
     
-    <div class="mb-3">
-        <label class="form-label">Price</label>
-        <input class="form-control" asp-for="Price" type="number" step="1000" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input class="form-control" asp-for="Price" type="number" step="0.01" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
 
-    <button class="btn btn-success">Save</button>
-    <a class="btn btn-secondary" asp-action="Index">Back</a>
-</form>
+        <div class="d-flex justify-content-between mt-4">
+            <a class="btn btn-secondary" asp-action="Index">Back</a>
+            <button class="btn btn-success">Save</button>
+        </div>
+
+    </form>
+
+</div>

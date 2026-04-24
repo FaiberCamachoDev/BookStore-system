@@ -1,0 +1,56 @@
+/* ===== LOANS DASHBOARD ===== */
+
+.loans-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.loans-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Table */
+.table-loans tbody tr {
+    transition: all 0.2s ease;
+}
+
+.table-loans tbody tr:hover {
+    background: #f8f9fa;
+    transform: scale(1.01);
+}
+
+/* Badge */
+.badge-loaned {
+    background: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+/* Form */
+.form-card {
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Select */
+.form-select {
+    transition: all 0.2s ease;
+}
+
+.form-select:focus {
+    box-shadow: 0 0 0 2px rgba(13,110,253,.25);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}

@@ -1,0 +1,46 @@
+/* TABLE */
+.table-custom {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-custom thead {
+    background-color: #1e293b;
+    color: white;
+}
+
+.table-custom tbody tr {
+    transition: 0.2s;
+}
+
+.table-custom tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* BUTTONS */
+.btn-action {
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+}
+
+/* HEADER */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* FORM */
+.form-card {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* DELETE BOX */
+.delete-box {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}

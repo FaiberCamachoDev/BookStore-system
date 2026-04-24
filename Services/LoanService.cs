@@ -45,7 +45,7 @@ namespace BookStore.Services
             //  marcar como prestado
             book.IsLoaned = true;
 
-            loan.LoanDate = DateTime.Now;
+            loan.LoanDate = DateTime.UtcNow;
 
             _context.Loans.Add(loan);
             _context.SaveChanges();

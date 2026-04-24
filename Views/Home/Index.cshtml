@@ -1,0 +1,45 @@
+@model BookStore.ViewModels.DashboardViewModel
+@section Styles {
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+}
+
+<div class="dashboard-header">
+    <h1>Dashboard</h1>
+    <p>Resume general of system</p>
+</div>
+
+<div class="dashboard-grid">
+
+    <div class="dashboard-card books">
+        <div class="card-icon">📚</div>
+        <div class="card-info">
+            <h3>Books</h3>
+            <p>@Model.TotalBooks</p>
+        </div>
+    </div>
+
+    <div class="dashboard-card users">
+        <div class="card-icon">👤</div>
+        <div class="card-info">
+            <h3>Users</h3>
+            <p>@Model.TotalUsers</p>
+        </div>
+    </div>
+
+    <div class="dashboard-card loans">
+        <div class="card-icon">🔄</div>
+        <div class="card-info">
+            <h3>Loans</h3>
+            <p>@Model.ActiveLoans</p>
+        </div>
+    </div>
+
+    <div class="dashboard-card money">
+        <div class="card-icon">💰</div>
+        <div class="card-info">
+            <h3>Total Value</h3>
+            <p>$@Model.TotalValue</p>
+        </div>
+    </div>
+
+</div>
